@@ -1,0 +1,51 @@
+﻿@inject SignInManager<IdentityUser> signInManager;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@* Sidebar *@
+<div class="d-flex flex-column flex-shrink-0 bg-light h-100 d-none" style="width: 4.5rem;" id="Sidebar">
+    <a href="/" class="d-block p-3 link-dark text-decoration-none" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
+        <i class="fa-solid fa-sack-dollar"></i>
+        <span class="visually-hidden">Icon-only</span>
+    </a>
+    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+        <li class="nav-item">
+            <a href="#" class="nav-link active py-3 border-bottom" aria-current="page" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                <i class="fa-solid fa-house"></i>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link py-3 border-bottom" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                <i class="fa-solid fa-wallet"></i>
+            </a>
+        </li>
+    </ul>
+    <div class="dropdown border-top">
+        <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
+        </a>
+        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+        </ul>
+    </div>
+</div>
+
+@* Header *@
+<div class="container-fluid w-100 d-flex justify-content-around align-items-center">
+    <div class="w-100  mt-3" onclick="Sidebartoggle()"><i class="fa-solid fa-sliders fs-3"></i></div>
+    <div class="w-100 d-flex justify-content-end mt-3">
+        @if (signInManager.IsSignedIn(User))
+        {
+            <h3>Hello!<span class="">@User.Identity</span></h3>
+        }
+        else
+        {
+            <p class="fw-bold">Join in on the Hustle!</p>
+        }
+    </div>
+</div>

@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-main: #5a02b3;
+    --secondry-main: #9933ff;
+    --primary-gradient: linear-gradient(45deg,var(--primary-main), #3399ff);
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html,body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.primary-dark {
+    background: var(--primary-gradient);
+}
+
+.secondry-dark-text {
+    color: var(--secondry-main);
+}
+
+.egg-shape-components{
+    border-radius: 25px;
+}
+
+.emoji-textbox {
+    margin: 1em;
+    position: relative;
+}
+.emoji-icon {
+    position: absolute;
+    top: 2px;
+    opacity: 0.6;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+}
+.form-container {
+    position: absolute;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+}

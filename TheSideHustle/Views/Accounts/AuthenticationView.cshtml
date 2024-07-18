@@ -1,0 +1,68 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model AuthModel
+@{
+    ViewBag.Title = "Authentication";
+}
+
+<div class="container primary-dark w-100 h-100 p-0 d-flex align-items-end">
+    @* Login Form *@
+    <div class="w-50 h-75 egg-shape-components p-5  form-container visible" id="Login-form">
+       <h1 class="fw-bold text-white">
+           Login
+       </h1>
+        <form class="mt-3 mb-3" method="post" asp-action="Login" asp-controller="Accounts">
+            <div class="form-group egg-shape-components bg-white d-flex align-items-center">
+                <i class="fa-solid fa-at w-25"></i>
+                <input type="email" class="form-control p-3  border-0" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" asp-for="LoginProperties.Email">
+                <span class="text-danger" asp-validation-for="LoginProperties.Email"></span>
+            </div>
+            <div class="form-group mt-1 egg-shape-components bg-white d-flex align-items-center">
+                <i class="fa-solid fa-lock w-25"></i>
+                <input type="password" class="form-control p-3 border-0" id="exampleInputPassword1" placeholder="Password" asp-for="LoginProperties.Password">
+                <span class="text-danger" asp-validation-for="LoginProperties.Password"></span>
+            </div>
+            <div class="form-check d-flex justify-content-end mb-3">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                <label class="form-check-label text-white" asp-for="LoginProperties.RememberMe">
+                    Remember Me?
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 egg-shape-components p-3 fw-bold">Login</button>
+            <div class="d-flex justify-content-center align-items-center w-100">
+                <p class="text-white">Forgot Password?</p>
+            </div>
+        </form>
+        <div class="d-flex justify-content-center align-items-center">
+            <p class="text-white">New Here? <span class="text-decoration-underline secondry-dark-text" onclick="OpenSignUp()">Sign Up</span></p>
+        </div>
+   </div>
+   @* SignUp form *@
+    <div class="w-50 h-75 egg-shape-components p-5  form-container hidden" id="SignUp-form">
+        <h1 class="fw-bold text-white">
+            Signup
+        </h1>
+        <form class="mt-3 mb-3" method="post" asp-action="Signup" asp-controller="Accounts">
+            <div class="form-group mt-1 egg-shape-components bg-white d-flex align-items-center">
+                <i class="fa-solid fa-at w-25"></i>
+                <input type="email" class="form-control p-3 border-0" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" asp-for="SignupProperties.Email">
+                <span asp-validation-for="SignupProperties.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-1 egg-shape-components bg-white d-flex align-items-center">
+                <i class="fa-solid fa-lock w-25"></i>
+                <input type="password" class="form-control p-3 border-0" id="exampleInputPassword1" placeholder="Enter Password" asp-for="SignupProperties.Password">
+                <span asp-validation-for="SignupProperties.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-1 egg-shape-components bg-white d-flex align-items-center">
+                <i class="fa-solid fa-lock w-25"></i>
+                <input type="password" class="form-control p-3 border-0" id="exampleInputPassword1" placeholder="Confirm Password" asp-for="SignupProperties.ConfirmPassword">
+                <span asp-validation-for="SignupProperties.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 egg-shape-components p-3 fw-bold mt-3">SignUp</button>
+        </form>
+        <div class="d-flex justify-content-center align-items-center">
+            <p class="text-white">Already have an account? <span class="text-decoration-underline secondry-dark-text" onclick="OpenLogIn()">Log In</span></p>
+        </div>
+    </div>
+</div>
